@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @discipline.Name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @discipline.Description %>
+</p>
+
+<p>
+  <strong>Degrees offered:</strong>
+
+    <ul> <% for item in @degrees %>
+      <% for uni in item.university %>
+          <li> 
+            <%= item.name  %> by <%= uni.name %>
+          </li>
+      <% end %>
+    <% end %>
+    </ul>     
+</p>
+
+<p>
+  <strong>SubDisciplines</strong>
+      <ul> 
+      <% for item in @sub %>
+      <li>
+      <%= link_to item.name,subdiscipline_path(item) %> </li>
+
+      <% end %>
+    </ul>
+
+</p>
+
+<%= link_to 'Edit', edit_discipline_path(@discipline) %> |
+<%= link_to 'Back', disciplines_path %>

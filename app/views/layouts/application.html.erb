@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SPROJ</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="nav">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">How Does it Work</a>
+      <a href="#">Get Started</a>
+      <a href="#">Sign/Sign up</a>
+      <a href="#">Contact Us</a>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>
