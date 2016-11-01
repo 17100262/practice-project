@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030072223) do
+ActiveRecord::Schema.define(version: 20161101152004) do
 
   create_table "cities", force: :cascade do |t|
     t.text     "name"
@@ -30,12 +30,11 @@ ActiveRecord::Schema.define(version: 20161030072223) do
   create_table "discipline_universities", force: :cascade do |t|
     t.integer  "university_id"
     t.integer  "discipline_id"
-    t.integer  "subdiscipline_id"
     t.integer  "degreeprogram_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "subdiscipline_id"
     t.index ["degreeprogram_id"], name: "index_discipline_universities_on_degreeprogram_id"
-    t.index ["subdiscipline_id"], name: "index_discipline_universities_on_subdiscipline_id"
   end
 
   create_table "disciplines", force: :cascade do |t|
