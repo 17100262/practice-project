@@ -1,4 +1,5 @@
 class Subdiscipline < ApplicationRecord
+  resourcify
   validates :name, :uniqueness => {:message => 'already taken'}
   belongs_to :discipline
   # has_many :degreeprogram

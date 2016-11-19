@@ -1,4 +1,5 @@
 class DisciplineUniversity < ApplicationRecord
+	resourcify
 	belongs_to :university
 	belongs_to :discipline
 	belongs_to :subdiscipline

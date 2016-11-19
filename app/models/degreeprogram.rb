@@ -1,4 +1,5 @@
 class Degreeprogram < ApplicationRecord
+	resourcify
 	belongs_to :discipline
 	belongs_to :subdiscipline
 	# has_many :university_degree

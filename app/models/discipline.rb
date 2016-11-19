@@ -1,4 +1,6 @@
 class Discipline < ApplicationRecord
+	resourcify
+	# before_action :signed_in_user, only: [:edit, :update]
 	validates :Name, :uniqueness => {:message => 'already taken'}
 
 	has_many :discipline_university

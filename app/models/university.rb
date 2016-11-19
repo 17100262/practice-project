@@ -1,4 +1,5 @@
 class University < ApplicationRecord
+	resourcify
 	validates :name, :uniqueness => {:message => 'already taken'}
 	
 	has_many :discipline_university

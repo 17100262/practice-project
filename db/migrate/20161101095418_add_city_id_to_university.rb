@@ -14,7 +14,7 @@ class AddCityIdToUniversity < ActiveRecord::Migration[5.0]
   	add_foreign_key :university, :city_id
   	remove_foreign_key :universities, column: :CityId
   	add_foreign_key :universities, :city_id
-  	remove_index :subdisciplines, :column => :discipline_id
+  	# remove_index :subdisciplines, :column => :discipline_id
   	remove_column :subdisciplines, :column => :discipline_id
   	add_column :subdisciplines, :description, :text
   # add_column :discipline_universities, :subdiscipline_id, :integer, :null => :false

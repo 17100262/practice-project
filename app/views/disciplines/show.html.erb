@@ -1,39 +1,51 @@
 <p id="notice"><%= notice %></p>
+<!-- <div class="container"> -->
+<div class="row">
+    <!-- <div class="col-md-2">col-md-3</div> -->
+    <div class="col-md-8 col-md-offset-2">
+      <p class="text-center">
+        <h1 align="center"><%= @discipline.Name %></h1>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @discipline.Name %>
-</p>
+      <p class="text-center">
+        <!-- <strong>Description:</strong> -->
+        <%= @discipline.Description %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @discipline.Description %>
-</p>
+      <p>
+        <h2 align="center">Degrees offered</h2>
+          <ul> <% for item in @degrees %>
+            <% for uni in item.university %>
+                <li> 
+                  <%= item.name  %> by <%= uni.name %>
+                </li>
+            <% end %>
+          <% end %>
+          </ul>     
+      </p>
 
-<p>
-  <strong>Degrees offered:</strong>
+    <p>
+      <h2 align="center">Subdisciplines</h2>
+          <ul> 
+          <% for item in @sub %>
+          <li>
+          <%= link_to item.name,subdiscipline_path(item) %> </li>
 
-    <ul> <% for item in @degrees %>
-      <% for uni in item.university %>
-          <li> 
-            <%= item.name  %> by <%= uni.name %>
-          </li>
-      <% end %>
-    <% end %>
-    </ul>     
-</p>
+          <% end %>
+        </ul>
 
-<p>
-  <strong>SubDisciplines</strong>
-      <ul> 
-      <% for item in @sub %>
-      <li>
-      <%= link_to item.name,subdiscipline_path(item) %> </li>
+    </p>
+    <% if can? :update, @discipline %>
 
-      <% end %>
-    </ul>
 
-</p>
+    <%= link_to 'Edit', edit_discipline_path(@discipline) %>| 
+    <% end %> 
+    
+    <%= link_to 'Back', disciplines_path %>
+    </div>
 
-<%= link_to 'Edit', edit_discipline_path(@discipline) %> |
-<%= link_to 'Back', disciplines_path %>
+  
+  <!-- <div class="col-md-4">col-md-4</div> -->
+</div>
+
+<!-- </div> -->

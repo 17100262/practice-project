@@ -9,15 +9,37 @@
   </head>
 
   <body>
-    <div class="nav">
-      <a href="#">Home</a>
-      <a href="#">About Us</a>
-      <a href="#">How Does it Work</a>
-      <a href="#">Get Started</a>
-      <a href="#">Sign/Sign up</a>
-      <a href="#">Contact Us</a>
+    
+    
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">SILP</a>
     </div>
-
-    <%= yield %>
+    
+    <ul class="nav navbar-nav  navbar-right">
+      <!-- <li class="active"><a href="#">Home</a></li> -->
+      <li><a href="#">Home</a></li>
+      <li><a href="#">How does it work</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><%= link_to 'Get Started', "#" %></li>
+      <li>
+        <% if user_signed_in? %>
+          <%= link_to 'Log Out', destroy_user_session_path, :method => :delete %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path %>
+        <% end %>
+      </li>
+       
+    </ul>
+      
+      </div>
+    </nav>
+    
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
+  <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
 </html>
